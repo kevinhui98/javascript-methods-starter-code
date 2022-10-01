@@ -19,11 +19,19 @@ Array.prototype.myMap = function (callbackFn) {
   return tempArr
 };
 console.log(myArr.myMap(x => x * 2))
-
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 // FILTER //
 Array.prototype.myFilter = function (callbackFn) {
-  // Place your code here.
+  let tempArr = Array()
+  for (let i = 0; i < this.length; i++) {
+    if (this[i] === undefined) continue;
+    if (callbackFn(this[i], i, this)) {
+      tempArr.push(this[i])
+    }
+  }
+  return tempArr
 };
+console.log(words.myFilter(word => word.length > 6))
 
 // SOME //
 Array.prototype.mySome = function (callbackFn) {
