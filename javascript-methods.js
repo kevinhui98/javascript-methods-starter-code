@@ -52,11 +52,24 @@ Array.prototype.myReduce = function (callbackFn) {
 Array.prototype.myIncludes = function (searchElement) {
   // Place your code here.
 };
-
+const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
 // INDEXOF //
 Array.prototype.myIndexOf = function (searchElement) {
-  // Place your code here.
+  for (let i = 0; i < this.length; i++) {
+    if (this[i] === searchElement) {
+      return i
+    }
+  }
 };
+console.log(beasts.indexOf('bison'));
+// expected output: 1
+
+// start from index 2
+console.log(beasts.indexOf('bison', 2));
+// expected output: 4
+
+console.log(beasts.indexOf('giraffe'));
+// expected output: -1
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function (searchElement) {
