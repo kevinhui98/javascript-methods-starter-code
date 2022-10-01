@@ -18,7 +18,8 @@ Array.prototype.myMap = function (callbackFn) {
   }
   return tempArr
 };
-console.log(myArr.myMap(x => x * 2))
+console.log("map :" + myArr.myMap(x => x * 2))
+
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 // FILTER //
 Array.prototype.myFilter = function (callbackFn) {
@@ -31,12 +32,24 @@ Array.prototype.myFilter = function (callbackFn) {
   }
   return tempArr
 };
-console.log(words.myFilter(word => word.length > 6))
-
+console.log("filter :" + words.myFilter(word => word.length > 6))
+let array = [1, 3, 5]
+const even = (element) => element % 2 === 0;
+const odd = (element) => element % 2 !== 0;
 // SOME //
 Array.prototype.mySome = function (callbackFn) {
-  // Place your code here.
+  let pass = false
+  for (let i = 0; i < this.length; i++) {
+    if (this[i] === undefined) continue;
+    if (callbackFn(this[i])) {
+      pass = true
+    }
+  }
 };
+console.log("some :" + array.some(even));
+// expected output: false
+console.log("some :" + array.some(odd));
+// expected output: true
 
 // EVERY //
 Array.prototype.myEvery = function (callbackFn) {
@@ -62,14 +75,14 @@ Array.prototype.myIndexOf = function (searchElement) {
     }
   }
 };
-console.log(beasts.indexOf('bison'));
+console.log("indexof :" + beasts.indexOf('bison'));
 // expected output: 1
 
 // start from index 2
-console.log(beasts.indexOf('bison', 2));
+console.log("indexof :" + beasts.indexOf('bison', 2));
 // expected output: 4
 
-console.log(beasts.indexOf('giraffe'));
+console.log("indexof :" + beasts.indexOf('giraffe'));
 // expected output: -1
 const animals = ['Dodo', 'Tiger', 'Penguin', 'Dodo'];
 // LASTINDEXOF //
@@ -81,10 +94,10 @@ Array.prototype.myLastIndexOf = function (searchElement) {
     }
   }
 };
-console.log(animals.lastIndexOf('Dodo'));
+console.log("lastindexof :" + animals.lastIndexOf('Dodo'));
 // expected output: 3
 
-console.log(animals.lastIndexOf('Tiger'));
+console.log("lastindexof :" + animals.lastIndexOf('Tiger'));
 // expected output: 1
 // KEYS //
 Object.myKeys = function (object) {
