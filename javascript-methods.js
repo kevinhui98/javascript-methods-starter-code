@@ -56,6 +56,7 @@ const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
 // INDEXOF //
 Array.prototype.myIndexOf = function (searchElement) {
   for (let i = 0; i < this.length; i++) {
+    if (this[i] === undefined) continue;
     if (this[i] === searchElement) {
       return i
     }
@@ -70,12 +71,21 @@ console.log(beasts.indexOf('bison', 2));
 
 console.log(beasts.indexOf('giraffe'));
 // expected output: -1
-
+const animals = ['Dodo', 'Tiger', 'Penguin', 'Dodo'];
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function (searchElement) {
-  // Place your code here.
+  for (let i = this.length - 1; i > 0; i++) {
+    if (this[i] === undefined) continue;
+    if (this[i] === searchElement) {
+      return i
+    }
+  }
 };
+console.log(animals.lastIndexOf('Dodo'));
+// expected output: 3
 
+console.log(animals.lastIndexOf('Tiger'));
+// expected output: 1
 // KEYS //
 Object.myKeys = function (object) {
   // Place your code here.
