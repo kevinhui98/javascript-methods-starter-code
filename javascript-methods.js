@@ -50,11 +50,20 @@ console.log("some :" + array.some(even));
 // expected output: false
 console.log("some :" + array.some(odd));
 // expected output: true
+const isBelowThreshold = (currentValue) => currentValue < 4;
 
+const array1 = [1, 30, 39, 29, 10, 13];
 // EVERY //
 Array.prototype.myEvery = function (callbackFn) {
-  // Place your code here.
+  let pass = true
+  while (pass) {
+    if (!callbackFn(this[i])) {
+      pass = false
+    }
+  }
 };
+console.log("every :" + array1.every(isBelowThreshold));
+// expected output: false
 
 // REDUCE //
 Array.prototype.myReduce = function (callbackFn) {
