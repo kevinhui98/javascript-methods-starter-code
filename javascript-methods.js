@@ -52,12 +52,13 @@ console.log("some :" + array.some(odd));
 // expected output: true
 const isBelowThreshold = (currentValue) => currentValue < 4;
 
-const array1 = [1, 30, 39, 29, 10, 13];
+const array1 = [1, , 39, 29, 10, 13];
 // EVERY //
 Array.prototype.myEvery = function (callbackFn) {
   let pass = true
   while (pass) {
-    if (!callbackFn(this[i])) {
+    if (this[i] === undefined) continue;
+    if (!callbackFn(this[i], i, this)) {
       pass = false
     }
   }
