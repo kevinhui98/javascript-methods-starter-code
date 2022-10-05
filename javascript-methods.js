@@ -65,12 +65,24 @@ Array.prototype.myEvery = function (callbackFn) {
 };
 console.log("every :" + array1.every(isBelowThreshold));
 // expected output: false
-
+const ruduceArr = [1, 2, 3, 4];
 // REDUCE //
 Array.prototype.myReduce = function (callbackFn) {
-  // Place your code here.
-};
+  let temp = 0
 
+  for (let i = 0; i < this.length; i++) {
+    if (this[i] === undefined) continue;
+    temp = callbackFn(temp, this[i], i, this)
+  }
+  return temp
+};
+const initialValue = 0;
+const sumWithInitial = ruduceArr.myReduce(
+  (previousValue, currentValue) => previousValue + currentValue,
+  initialValue
+);
+
+console.log('reduce ' + sumWithInitial);
 // INCLUDES //
 Array.prototype.myIncludes = function (searchElement) {
   // Place your code here.
