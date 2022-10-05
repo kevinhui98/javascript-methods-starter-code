@@ -109,11 +109,16 @@ console.log("lastindexof :" + animals.lastIndexOf('Dodo'));
 
 console.log("lastindexof :" + animals.lastIndexOf('Tiger'));
 // expected output: 1
+const myobject = { a: 1, b: 2, c: 3 };
 // KEYS //
 Object.myKeys = function (object) {
-  // Place your code here.
+  let tempArr = Array()
+  for (const i in object) {
+    tempArr.push(i)
+  }
+  return tempArr
 };
-
+console.log(Object.myKeys(myobject));
 // VALUES //
 Object.myValues = function (object) {
   // Place your code here.
