@@ -143,5 +143,10 @@ Object.myKeys = function (object) {
 console.log(Object.myKeys(myobject));
 // VALUES //
 Object.myValues = function (object) {
-  // Place your code here.
+  let tempArr = Array()
+  for (const i in object) {
+    tempArr.push(object[i])
+  }
+  return tempArr
 };
+console.log(Object.myValues(myobject));
