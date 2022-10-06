@@ -83,10 +83,20 @@ const sumWithInitial = ruduceArr.myReduce(
 );
 
 console.log('reduce ' + sumWithInitial);
+const includeArr = [1, 2, 21, 3];
 // INCLUDES //
 Array.prototype.myIncludes = function (searchElement) {
-  // Place your code here.
+  let pass = false
+  this.forEach(i => {
+    if (this[i] === searchElement) {
+      pass = true
+      return pass
+    }
+  });
+  return pass
 };
+console.log('my include ' + includeArr.myIncludes(21))
+
 const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
 // INDEXOF //
 Array.prototype.myIndexOf = function (searchElement) {
